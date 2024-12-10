@@ -10,18 +10,16 @@
 #include <vector>
 #include <algorithm>
 
+
 class Contact {
-public:
-    Contact(const std::string& name, int age);
-
-    void addFriend(Contact* newFriend);
-
-    void removeFriend(const std::string& friendName);
-
 private:
-    std::string name;
-    int age;
-    std::vector<Contact*> friends;
+    std::string* m_name { nullptr };
+    int m_age {};
+    std::vector<Contact*> m_friends {};
+    Contact(std::string* name, int age);
+    void addFriend(Contact* newFriend);
+    void removeFriend(std::string_view friendName);
 };
 
-#endif
+
+#endif //ASSIGNMENT_3_CONTACT_H
